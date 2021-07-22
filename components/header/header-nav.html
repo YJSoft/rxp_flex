@@ -1,0 +1,32 @@
+<load target="header-nav.scss" vars="RxpFlexTheme::$variables" />
+
+<nav class="app-header-nav" cond="!$global_menu->list && \Rhymix\Framework\Session::isAdmin()">
+    <ul>
+        <li><a href="{getUrl('','module','admin','act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}" target="_blank">메뉴가 지정되지 않음. 레이아웃 설정 바로가기</a></li>
+    </ul>
+</nav>
+
+<nav class="app-header-nav" cond="$global_menu && $global_menu->list">
+    <ul>
+        <!-- prettier-ignore -->
+        <li loop="$global_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']" is-divider|cond="$val1['link'] == '/'">
+            <!-- prettier-ignore -->
+            <a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="app-header-nav-icon"|cond="$val1['icon']" title="{$val1['link']}"|cond="$val1['icon']">
+                <ion-icon cond="$val1['icon']" name="{$val1['icon']}"></ion-icon>
+                <span>{$val1['link']}</span>
+                <ion-icon cond="$val1['list']" name="chevron-down-outline" class="app-header-nav-more"></ion-icon>
+            </a>
+
+            <ul cond="$val1['list']" class="app-header-nav-child">
+                <!-- prettier-ignore -->
+                <li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']" is-divider|cond="$val2['link'] == '/'">
+                    <!-- prettier-ignore -->
+                    <a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">
+                        <ion-icon cond="$val2['icon']" name="{$val2['icon']}"></ion-icon>
+                        <span>{$val2['link']}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

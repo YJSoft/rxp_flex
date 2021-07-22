@@ -1,0 +1,12 @@
+<a cond="$layoutConfig['header_search'] === 'Y'" class="app-header-item" onclick="toggleDialog('app-search-form')">
+    <ion-icon name="search-outline"></ion-icon>
+</a>
+
+<!-- prettier-ignore -->
+<a cond="$layoutConfig['color_scheme'] === 'auto'" class="app-header-item app-tooltip" onclick="onClickDarkThemeToggle()" title="{$heaer_darkmode_text}">
+    <ion-icon cond="RxpFlexTheme::isDarkMode()" name="sunny-outline"></ion-icon>
+    <ion-icon cond="!RxpFlexTheme::isDarkMode()" name="contrast-outline"></ion-icon>
+</a>
+
+<include cond="!$logged_info" target="header-login.html" />
+<include cond="$logged_info" target="header-profile.html" />
