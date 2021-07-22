@@ -1,0 +1,48 @@
+.app-footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-gray-200;
+  background-color: var(--color-gray-050);
+  box-sizing: border-box;
+  border-top: 1px solid var(--color-gray-100);
+  transition: background-color 0.3s ease-in-out;
+
+  .app-footer-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    & > li {
+      display: inline-block;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 8px;
+        margin: 0 0.25rem;
+        border-right: 1px solid $color-gray-400;
+        border-right: 1px solid var(--color-gray-400);
+      }
+
+      &:last-child::after {
+        content: none;
+      }
+
+      & > a {
+        color: $color-gray-600;
+        color: var(--color-gray-600);
+        font-size: 0.75rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .app-footer-copyright {
+    color: $color-gray-500;
+    color: var(--color-gray-500);
+    font-size: 0.75rem;
+  }
+}

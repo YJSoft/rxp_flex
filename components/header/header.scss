@@ -1,0 +1,244 @@
+$header-height: 52px;
+$header-blur: saturate(180%) blur(5px);
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+
+  background-color: rgba($color-gray-050, 0.9);
+  background-color: rgba(var(--color-gray-050), 0.9);
+  -webkit-backdrop-filter: $header-blur;
+  backdrop-filter: $header-blur;
+
+  @media (max-width: $mobile-w) {
+    height: 52px;
+  }
+
+  &__divider {
+    flex: 1;
+  }
+
+  &-space {
+    position: relative;
+    height: $header-height;
+  }
+}
+
+.app-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  max-width: $base-container;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .app-header--expand & {
+    max-width: 100%;
+    padding-left: $base-padding;
+    padding-right: $base-padding;
+  }
+
+  @media (max-width: $mobile-w) {
+    padding-left: 1.25rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+.app-header__left,
+.app-header__right,
+.app-header__center {
+  display: flex;
+  align-items: center;
+}
+
+.app-header__left,
+.app-header__right {
+  width: 250px;
+}
+
+.app-header__right {
+  justify-content: flex-end;
+}
+
+.app-header__center {
+  flex: 1;
+  justify-content: center;
+}
+
+.app-header-logo {
+  position: relative;
+  display: block;
+  max-height: $header-height;
+
+  color: $color-gray-800;
+  color: var(--color-gray-800);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+
+  & > img,
+  & > svg {
+    display: block;
+    width: auto;
+    height: 2.875rem;
+    fill: $color-gray-800;
+    fill: var(--color-gray-800);
+
+    @media (max-width: $mobile-w) {
+      height: 2.5rem;
+    }
+  }
+}
+
+.app-header__signup {
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    color: mix(black, $color-primary, 10%);
+  }
+  &:active {
+    color: mix(black, $color-primary, 20%);
+  }
+}
+
+.app-header__login {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 0.875rem;
+  margin-right: 1rem;
+
+  color: $color-text-primary;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 32px;
+  text-decoration: none;
+
+  background-color: $color-primary;
+  border-radius: $border-radius-2;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: mix(black, $color-primary, 10%);
+  }
+  &:active {
+    background-color: mix(black, $color-primary, 20%);
+  }
+
+  @media (max-width: $mobile-w) {
+    height: 32px;
+    padding: 0 0.75rem;
+    margin-right: 0.75rem;
+
+    font-size: 0.75rem;
+  }
+}
+
+.app-header__login,
+.app-header__signup {
+  @media (max-width: $mobile-w) {
+    display: none;
+  }
+}
+
+.app-header-item {
+  cursor: pointer;
+  display: block;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  font-size: 1rem;
+  text-decoration: none;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  transition: 0.2s ease;
+
+  ion-icon {
+    font-size: 1.25rem;
+    --ionicon-stroke-width: 2.5rem;
+  }
+
+  @media (max-width: $mobile-w) {
+    font-size: 0.875rem;
+    padding: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// 프로필 영역
+.app-header-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.5rem;
+  border-radius: $border-radius-3;
+
+  color: $color-gray-600;
+  color: var(--color-gray-600);
+  font-size: 1rem;
+  background-color: $color-gray-300;
+  background-color: var(--color-gray-300);
+  overflow: hidden;
+
+  --ionicon-stroke-width: 3rem;
+
+  @media (max-width: $mobile-w) {
+    margin-left: 0.25rem;
+    margin-right: 0.5rem;
+
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 10px;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}

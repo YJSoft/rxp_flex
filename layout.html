@@ -1,0 +1,28 @@
+<include target="_import.html" />
+<include target="_init.html" />
+
+<include target="components/header/header.html" />
+
+<div>
+    <main class="app-main">
+        {@
+            $appContentClass = ['app-content', 'app-container'];
+            if ($layoutConfig['container_light'] == 'Y'):
+                $appContentClass[] = 'app-content--light';
+            endif;
+
+            if ($layoutConfig['container_padding_tight'] === 'Y' || Mobile::isFromMobilePhone()):
+                $appContentClass[] = 'app-content--tight';
+            endif;
+
+            $appContentClass = implode(' ', $appContentClass);
+        }
+
+        <include target="components/board-thumbnail/board-thumbnail.html" />
+        <div class="{$appContentClass}">{$content}</div>
+    </main>
+
+    <include target="components/footer/footer.html" />
+</div>
+
+<include target="components/ie-message.html" />
